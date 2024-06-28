@@ -1,7 +1,7 @@
 * {
     margin: 0;
     padding: 0;
-    box-sizing: border-box; /* Prevent elements from causing horizontal overflow */
+    box-sizing: border-box; 
 }
 
 :root {
@@ -12,7 +12,7 @@
 body {
     font-family: var(--main-text-font);
     color: var(--main-text-color);
-    overflow-x: hidden; /* Prevent horizontal scrolling */
+    overflow-x: hidden; 
 }
 
 h1, p {
@@ -90,13 +90,13 @@ main {
     width: 250px;
     background-color: #f9f9f9;
     color: var(--main-text-color);
-    text-align: left; /* Align text to the left */
+    text-align: left; 
     border-radius: 6px;
     padding: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     position: absolute;
     z-index: 1;
-    top: 125%; /* Position below the info icon */
+    top: 125%; 
     left: 50%;
     transform: translateX(-50%);
 }
@@ -104,7 +104,7 @@ main {
 .tooltip::after {
     content: "";
     position: absolute;
-    bottom: 100%; /* Arrow at the top */
+    bottom: 100%; 
     left: 50%;
     margin-left: -5px;
     border-width: 5px;
@@ -163,4 +163,5 @@ main {
 
 .copyright {
     text-align: center;
+    
 }
