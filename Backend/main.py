@@ -1,10 +1,10 @@
+from flask import Flask, render_template, request, jsonify
 import re
 import networkx as nx
-from collections import defaultdict, Counter
-from math import log
-from itertools import chain
 from sklearn.feature_extraction.text import TfidfVectorizer
 from sklearn.metrics.pairwise import cosine_similarity
+
+app = Flask(__name__, template_folder='../frontend', static_folder='../frontend')
 
 # Step 1: Define Stop Words
 STOP_WORDS = """
@@ -66,16 +66,20 @@ def summarize(text, num_sentences=5):
     summary = ' '.join(sentences[i] for i in selected_indices)
     return summary
 
-# Step 6: Example Usage with Longer Text
-long_text = """
-Thomas Isidore Noël Sankara (French pronunciation: [tɔmɑ izidɔʁ nɔɛl sɑ̃kaʁa]; 21 December 1949 – 15 October 1987) was a Burkinabè military officer, Marxist revolutionary and Pan-Africanist who served as President of Burkina Faso from his coup in 1983 to his assassination in 1987.
+@app.route('/')
+def index():
+    return render_template('index.html')
 
-After being appointed Prime Minister in 1983, disputes with the sitting government led to Sankara's eventual imprisonment. While he was under house arrest, a group of revolutionaries seized power on his behalf in a popularly-supported coup later that year.[1][2]
+@app.route('/summarize', methods=['POST'])
+def summarizer():
+    text = request.form['input']
+    num_sentences = int(request.form.get('num_sentences', 4))  # Default to 5 sentences if not specified
 
-At the age of 33, Sankara became the President of the Republic of Upper Volta and launched an unprecedented series of social, ecological, and economic reforms. Sankara also renamed the country from the French colonial choice to Burkina Faso ('Land of Incorruptible People'), with its people being called Burkinabé ('upright people').[3][4] His foreign policies were centred on anti-imperialism and he rejected loans and capital from organizations such as the International Monetary Fund. However he welcomed some foreign aid in an effort to boost domestic revenues, diversify the sources of assistance, and make Burkina Faso self-sufficient.[5]
-"""
+    if not text:
+        return jsonify({'error': 'Input text is empty.'})
 
-# Generate and print the summary
-summary = summarize(long_text, num_sentences=5)
-print("Summary:")
-print(summary)
+    summary = summarize(text, num_sentences)
+    return jsonify({'summary': summary})
+
+if __name__ == '__main__':
+    app.run(debug=True)
