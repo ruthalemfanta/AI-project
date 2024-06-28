@@ -38,7 +38,7 @@
                 <div class="input">
                     <div class="label">
                         <label for="input">Input Text</label>
-                        <img src="{{ url_for('static', filename='images/icons8-delete-192.png') }}" alt="delete" class="delete-logo">
+                        <img src="{{ url_for('static', filename='images/icons8-delete-192.png') }}" alt="delete" class="delete-logo" id="deleteImage">
                     </div>
                     <textarea name="input" id="input" rows="20" cols="50" placeholder="Enter your text here..."></textarea>
                 </div>
@@ -58,21 +58,5 @@
         <div class="copyright">&copy; 2024. All rights reserved.</div>
     </footer>
     <script src="{{ url_for('static', filename='script.js') }}"></script>
-    <script>
-        document.getElementById('summarizeForm').addEventListener('submit', function(event) {
-            event.preventDefault();
-            
-            let formData = new FormData(this);
-            fetch('/summarize', {
-                method: 'POST',
-                body: formData
-            })
-            .then(response => response.json())
-            .then(data => {
-                document.getElementById('output').value = data.summary;
-            })
-            .catch(error => console.error('Error:', error));
-        });
-    </script>
-</body>
+ </body>
 </html>

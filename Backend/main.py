@@ -73,7 +73,7 @@ def index():
 @app.route('/summarize', methods=['POST'])
 def summarizer():
     text = request.form['input']
-    num_sentences = int(request.form.get('num_sentences', 4))  # Default to 5 sentences if not specified
+    num_sentences = int(request.form.get('num_sentences', 3)) 
 
     if not text:
         return jsonify({'error': 'Input text is empty.'})
