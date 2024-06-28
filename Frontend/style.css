@@ -1,21 +1,51 @@
-h1,h3{
-    font-family:Arial, Helvetica, sans-serif;
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box; /* Prevent elements from causing horizontal overflow */
+}
+
+:root {
+    --main-text-color: rgb(62, 62, 62);
+    --main-text-font: Arial, Helvetica, sans-serif;
+}
+
+body {
+    font-family: var(--main-text-font);
+    color: var(--main-text-color);
+    overflow-x: hidden; /* Prevent horizontal scrolling */
+}
+
+h1, p {
+    font-family: var(--main-text-font);
 }
 
 textarea {
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ccc;
     resize: none;
-    padding: 20px;
 }
 
+label {
+    display: block;
+    margin-bottom: 10px;
+    font-weight: bold;
+    color: var(--main-text-color);
+}
 
-.logo{
+main {
+    padding: 1.2rem;
+    margin-top: 2rem;
+}
+
+.logo {
     width: 2.5rem;
     height: 2.5rem;
 }
 
 .navbar {
-    padding-left: 1rem;
-    padding-right: 1rem;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 0.5rem 1.2rem;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -23,11 +53,13 @@ textarea {
 
 .title {
     font-size: 1.4rem;
+    color: var(--main-text-color);
 }
 
-.instruction{
+.instruction {
     text-align: center;
     font-size: 1.5rem;
+    color: var(--main-text-color);
 }
 
 .container {
@@ -35,9 +67,7 @@ textarea {
     flex-wrap: wrap;
     justify-content: center;
     padding: 1.2rem;
-}
-.input {
-    margin-right: 10px;
+    gap: 1.2rem;
 }
 
 .button-container {
@@ -47,7 +77,90 @@ textarea {
 
 .button {
     font-size: 1.5rem;
-    padding: 7px 20px 7px 20px ;
+    padding: 7px 20px;
 }
 
+.info-icon-container {
+    position: relative;
+    display: inline-block;
+}
 
+.tooltip {
+    visibility: hidden;
+    width: 250px;
+    background-color: #f9f9f9;
+    color: var(--main-text-color);
+    text-align: left; /* Align text to the left */
+    border-radius: 6px;
+    padding: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    position: absolute;
+    z-index: 1;
+    top: 125%; /* Position below the info icon */
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.tooltip::after {
+    content: "";
+    position: absolute;
+    bottom: 100%; /* Arrow at the top */
+    left: 50%;
+    margin-left: -5px;
+    border-width: 5px;
+    border-style: solid;
+    border-color: transparent transparent #f9f9f9 transparent;
+}
+
+.info-icon-container:hover .tooltip {
+    visibility: visible;
+}
+
+.github-logo {
+    width: 1.9rem;
+    height: 1.9rem;
+}
+
+.info-logo {
+    width: 1.7rem;
+    height: 1.7rem;
+}
+
+.output, .input {
+    color: var(--main-text-color);
+    font-family: var(--main-text-font);
+    padding: 1.2rem;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.delete-logo {
+    width: 1.3rem;
+    height: 1.3rem;
+    color: red;
+}
+
+.label {
+    display: flex;
+    justify-content: space-between;
+}
+
+.button {
+    padding: 10px 20px;
+    font-size: 16px;
+    background-color: #3379c3;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.button:hover {
+    background-color: #0056b3;
+}
+
+.copyright {
+    text-align: center;
+}

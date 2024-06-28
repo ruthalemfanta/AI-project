@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
-    <link rel="icon" type="image/png" href="./images/logo.png">
+    <link rel="icon" type="image/png" href="./images/favicon.png">
     <title>Text Summarizer</title>
 </head>
 <body>
@@ -13,32 +13,46 @@
         <nav class="navbar">
             <img class="logo" src="./images/logo.png" alt="logo">
             <div class="title">
-                <h1>Text Summarizer</h1>
+                <p>Text Summarizer</p>
             </div>
             <div class="info">
-                <img src="./images/icons8-info-24.png" alt="info-logo">
+                <a href="https://github.com/ruthalemfanta/AI-project"><img class="github-logo" src="./images/icons8-github-144.png" alt="github.link"></a>
+                <div class="info-icon-container">
+                    <img class="info-logo" src="./images/icons8-info-250.png" alt="info-logo">
+                    <div class="tooltip">
+                        <h4>How to Use the Text Summarizer</h4>
+                        <p>1. Enter the text you want summarized in the first text area.</p>
+                        <p>2. Click the "Summarize" button.</p>
+                        <p>3. The summary will appear in the second text area.</p>
+                    </div>
+                </div>
             </div>
         </nav>
     </header>
 
     <main>
-        <h3 class="instruction"> Insert the text you want summarized below, in the first box</h3>
+        <p class="instruction"> Insert the text you want summarized below, in the first box</p>
         <div class="container">
             <div class="input">
-                <label for="input"></label>
+                <div class="label">
+                    <label for="input">Input Text</label>
+                    <img src="./images/icons8-delete-192.png" alt="delete" class="delete-logo">
+                </div>
                 <textarea name="input" id="input" rows="20" cols="50" placeholder="Enter your text here..."></textarea>
             </div>
             <div class="output">
-                <label for="output"></label>
-                <textarea name="output" id="output" rows="20" cols="50"></textarea>
+                <label for="output">Summary</label>
+                <textarea name="output" id="output" rows="20" cols="50" readonly></textarea>
             </div>
         </div>
         <div class="button-container">
             <button class="button">Summarize</button>
         </div>
-
     </main>
 
-    <footer></footer>
+    <footer>
+        <div class="copyright">&copy; 2024. All rights reserved.</div>
+    </footer>
+    <script src="script.js"></script>
 </body>
 </html>
