@@ -3,22 +3,22 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css">
-    <link rel="icon" type="image/png" href="images/favicon.png">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <link rel="icon" type="image/png" href="{{ url_for('static', filename='images/favicon.png') }}">
     <title>Text Summarizer</title>
 </head>
 <body>
 
     <header>
         <nav class="navbar">
-            <img class="logo" src="images/logo.png" alt="logo">
+            <img class="logo" src="{{ url_for('static', filename='images/logo.png') }}" alt="logo">
             <div class="title">
                 <p>Text Summarizer</p>
             </div>
             <div class="info">
-                <a href="https://github.com/ruthalemfanta/AI-project"><img class="github-logo" src="images/icons8-github-144.png" alt="github.link"></a>
+                <a href="https://github.com/ruthalemfanta/AI-project"><img class="github-logo" src="{{ url_for('static', filename='images/icons8-github-144.png') }}" alt="github.link"></a>
                 <div class="info-icon-container">
-                    <img class="info-logo" src="images/icons8-info-250.png" alt="info-logo">
+                    <img class="info-logo" src="{{ url_for('static', filename='images/icons8-info-250.png') }}" alt="info-logo">
                     <div class="tooltip">
                         <h4>How to Use the Text Summarizer</h4>
                         <p>1. Enter the text you want summarized in the first text area.</p>
@@ -38,7 +38,7 @@
                 <div class="input">
                     <div class="label">
                         <label for="input">Input Text</label>
-                        <img src="images/icons8-delete-192.png" alt="delete" class="delete-logo" id="deleteImage">
+                        <img src="{{ url_for('static', filename='images/icons8-delete-192.png') }}" alt="delete" class="delete-logo" id="deleteImage">
                     </div>
                     <textarea name="input" id="input" rows="20" cols="50" placeholder="Enter your text here..."></textarea>
                 </div>
@@ -57,6 +57,6 @@
     <footer>
         <div class="copyright">&copy; 2024. All rights reserved.</div>
     </footer>
-    <script src="script.js"></script>
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
 </body>
 </html>
