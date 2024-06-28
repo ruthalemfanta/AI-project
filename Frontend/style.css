@@ -163,5 +163,11 @@ main {
 
 .copyright {
     text-align: center;
-    
+}
+
+/* Adjustments for edge cases */
+.tooltip-right .tooltip {
+    left: auto;
+    right: 0;
+    transform: translateX(0);
 }

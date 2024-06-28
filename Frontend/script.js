@@ -16,3 +16,21 @@ document.getElementById('summarizeForm').addEventListener('submit', function(eve
 document.getElementById('deleteImage').addEventListener('click', function() {
     document.getElementById('input').value = '';
 });
+
+document.addEventListener('DOMContentLoaded', function() {
+    const infoIconContainers = document.querySelectorAll('.info-icon-container');
+
+    infoIconContainers.forEach(container => {
+        container.addEventListener('mouseover', function() {
+            const tooltip = container.querySelector('.tooltip');
+            const rect = tooltip.getBoundingClientRect();
+            const viewportWidth = window.innerWidth;
+
+            container.classList.remove('tooltip-right');
+
+            if (rect.right > viewportWidth) {
+                container.classList.add('tooltip-right');
+            }
+        });
+    });
+});
